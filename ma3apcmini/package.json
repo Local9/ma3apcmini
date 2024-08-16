@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "none",
   "main": "ma3apcminimk2.js",
+  "type": "module",
   "scripts": {
+    "apcmini": "node ma3apcmini.js",
+    "apcminimk2": "node ma3apcminimk2.js",
+    "apcminimk2color": "node ma3apcminimk2color.js",
     "test": "none"
   },
   "repository": {
