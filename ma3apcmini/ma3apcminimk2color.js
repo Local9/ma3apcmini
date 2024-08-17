@@ -5,14 +5,6 @@ const apcMiniInstance = new ApcMini("APC mini mk2", "APC mini mk2", "127.0.0.1",
 apcMiniInstance.brightnessLevel = 6;
 apcMiniInstance.setupExecutor(0, 9, 21, 8);
 
-//Config
-const LOGO_COLOR = 60;
-const FADER_INDICATOR_STATE = 1; //0 = off, 1 = on
-
-var faderArray = [0, 0, 0, 0, 0, 0, 0, 0];
-
-var GrandMaster = 100;
-
 // input.on("noteon", function (msg) {
 //   //recive midi keys and send to osc
 

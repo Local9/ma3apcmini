@@ -67,7 +67,7 @@ export default class ApcMini {
     this.colorEnabled = colorEnabled;
     this.setupMidi();
     this.sanityTest();
-    this.createUdp();
+    this.udpPort = this.createUdp();
 
     Logger.success("APC Mini initialized");
     Logger.debug(`Local IP: ${this.localIp}`);
@@ -165,10 +165,6 @@ export default class ApcMini {
       metadata: true,
     });
 
-    udpPort.open();
-
-    Logger.debug("UDP port opened");
-
     udpPort.on("ready", () => {
       Logger.debug("UDP port ready");
       Logger.success(`Please start the OSC plugin in grandMA3 onPC, to receive LED feedback.`);
@@ -182,11 +178,22 @@ export default class ApcMini {
       this.handleUdpMessage(message);
     });
 
+    udpPort.open();
+
+    Logger.debug("UDP port opened");
+
     return udpPort;
   }
 
   sendUdpCommand(args) {
     Logger.debug(`Sending UDP command: ${args}`);
+
+    // check if the udp port is ready
+    if (!this.udpPort.options.isReady) {
+      Logger.error("UDP port is not ready");
+      return;
+    }
+
     this.udpPort.send({ address: "/cmd", args }, this.remoteIp, this.remotePort);
   }
 
@@ -258,8 +265,9 @@ export default class ApcMini {
     const velocity = message.velocity;
     // using the commands get the note number to check if its a page button
     if (this.softKeysList.includes(note)) {
-      this.setPageLight(note);
-      // this.sendUdpCommand([{ type: "s", value: this.commands[note].maPage }]);
+      Logger.debug(`Page button pressed: ${note}`);
+      this.setPageLightByNote(note);
+      this.sendUdpCommand([{ type: "s", value: this.commands[note].maPage }]);
       return;
     }
 
