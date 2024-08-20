@@ -1,9 +1,3 @@
-/*
-
-
-
-*/
-
 import { Channels } from "./enums/channels";
 import { Colors } from "./enums/colors";
 import { FaderKeys } from "./enums/faderKeys";
@@ -143,8 +137,6 @@ WebMidi.enable()
       } else {
         ledColor = getVelocity(status);
       }
-
-      Logger.info(`Changing light state for note ${note} to ${status} with color ${Colors[ledColor]} and velocity ${Channels[channel]}`);
 
       sendNoteOn(note, channel, ledColor);
     };
