@@ -106,7 +106,7 @@ WebMidi.enable()
 
     const sanitityCheck = async () => {
       midiOutputs.sendNoteOn(27, { channels: Channels.brightness100, rawAttack: 5 });
-      midiOutputs.sendNoteOn(28, { channels: [Channels.brightness50, Channels.pulse1], rawAttack: 9 });
+      midiOutputs.sendNoteOn(28, { channels: Channels.pulse1, rawAttack: 9 });
       midiOutputs.sendNoteOn(35, { channels: Channels.pulse2, rawAttack: 13 });
       midiOutputs.sendNoteOn(36, { channels: Channels.pulse3, rawAttack: 17 });
       midiOutputs.sendNoteOn(43, { channels: Channels.pulse4, rawAttack: 25 });
