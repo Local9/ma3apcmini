@@ -18,7 +18,9 @@
   "license": "ISC",
   "description": "AKAI APC Mini Mk2 Control for MA3 via OSC",
   "devDependencies": {
+    "@types/node": "^22.4.1",
     "chalk": "^4.1.2",
+    "osc-js": "^2.4.1",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
     "webmidi": "^3.1.11"
