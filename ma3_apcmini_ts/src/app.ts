@@ -5,6 +5,7 @@
 */
 
 import { Channels } from "./enums/channels";
+import { Colors } from "./enums/colors";
 import { FaderKeys } from "./enums/faderKeys";
 import { SoftKeys } from "./enums/softkeys";
 import { sleep } from "./lib/func";
@@ -105,19 +106,19 @@ WebMidi.enable()
     };
 
     const sanitityCheck = async () => {
-      midiOutputs.sendNoteOn(27, { channels: Channels.brightness100, rawAttack: 5 });
-      midiOutputs.sendNoteOn(28, { channels: Channels.pulse1, rawAttack: 9 });
-      midiOutputs.sendNoteOn(35, { channels: Channels.pulse2, rawAttack: 13 });
-      midiOutputs.sendNoteOn(36, { channels: Channels.pulse3, rawAttack: 17 });
-      midiOutputs.sendNoteOn(43, { channels: Channels.pulse4, rawAttack: 25 });
-      midiOutputs.sendNoteOn(44, { channels: Channels.blinking1, rawAttack: 29 });
-      midiOutputs.sendNoteOn(51, { channels: Channels.blinking2, rawAttack: 34 });
-      midiOutputs.sendNoteOn(52, { channels: Channels.blinking3, rawAttack: 41 });
-      midiOutputs.sendNoteOn(59, { channels: Channels.blinking4, rawAttack: 45 });
-      midiOutputs.sendNoteOn(60, { channels: Channels.blinking5, rawAttack: 49 });
+      midiOutputs.sendNoteOn(27, { channels: Channels.brightness100, rawAttack: Colors.Red });
+      midiOutputs.sendNoteOn(28, { channels: Channels.pulse1, rawAttack: Colors.Orange });
+      midiOutputs.sendNoteOn(35, { channels: Channels.pulse2, rawAttack: Colors.Yellow2 });
+      midiOutputs.sendNoteOn(36, { channels: Channels.pulse3, rawAttack: Colors.Green2 });
+      midiOutputs.sendNoteOn(43, { channels: Channels.pulse4, rawAttack: Colors.Green3 });
+      midiOutputs.sendNoteOn(44, { channels: Channels.blinking1, rawAttack: Colors.Green4 });
+      midiOutputs.sendNoteOn(51, { channels: Channels.blinking2, rawAttack: Colors.MediumGreen5 });
+      midiOutputs.sendNoteOn(52, { channels: Channels.blinking3, rawAttack: Colors.Blue2 });
+      midiOutputs.sendNoteOn(59, { channels: Channels.blinking4, rawAttack: Colors.Blue3 });
+      midiOutputs.sendNoteOn(60, { channels: Channels.blinking5, rawAttack: Colors.Blue4 });
 
       for (let x = 0; x < 16; x++) {
-        midiOutputs.sendNoteOn(x, { channels: x, rawAttack: 3 });
+        midiOutputs.sendNoteOn(x, { channels: x, rawAttack: Colors.White });
       }
 
       faderKeyLoop();
