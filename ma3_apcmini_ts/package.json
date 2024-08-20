@@ -1,0 +1,26 @@
+{
+  "name": "grandma3_apc_mini_mk2",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "grandma3",
+    "grandma",
+    "ma3",
+    "apc",
+    "apc mini",
+    "apc mini mk2"
+  ],
+  "author": "github.com/local9",
+  "license": "ISC",
+  "description": "AKAI APC Mini Mk2 Control for MA3 via OSC",
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "webmidi": "^3.1.11"
+  }
+}
