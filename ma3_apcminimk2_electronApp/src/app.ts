@@ -46,7 +46,7 @@ const REMOTE_PORT = 8000;
 
 WebMidi.enable()
   .then(() => {
-    Logger.success("WebMidi enabled");
+    Logger.success("WebMidi Start Up");
     Logger.debug("Available inputs:");
     WebMidi.inputs.forEach((input) => {
       Logger.debug(`- ${input.name}`);
