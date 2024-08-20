@@ -160,6 +160,7 @@ WebMidi.enable()
 
     osc.on("open", () => {
       Logger.success(`OSC Server running on ${LOCAL_IP}:${LOCAL_PORT}`);
+      Logger.success("Please start the OSC Plugin in MA3 now");
     });
 
     osc.on("*", (message) => {
@@ -290,7 +291,6 @@ WebMidi.enable()
         const faderIndex = FADER_CONTROLS.indexOf(control);
         FADER_VALUE_ARRAY[faderIndex] = value;
         osc.send(new OSC.Message(`/Fader${control + shift}`, value));
-        Logger.info(`Fader ${control} set to ${value}%`);
       } else if (control === FADER_GRANDMASTER) {
         grandMaster = value;
 
@@ -347,7 +347,6 @@ WebMidi.enable()
       clearAllKeys();
 
       Logger.success("Sanity check completed, all lights should be off");
-      Logger.success("Please start the OSC Plugin in MA3 now");
     };
 
     sanitityCheck();
